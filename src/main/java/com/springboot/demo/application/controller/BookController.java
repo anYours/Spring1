@@ -4,6 +4,7 @@ import com.springboot.demo.application.mod.Book;
 import com.springboot.demo.application.service.BookRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -21,5 +22,11 @@ public class BookController {
         List<Book> books = bookRepository.findAll();
         model.addAttribute("books", books);
         return "list";
+    }
+
+    @RequestMapping(value = "delete/{id}", method = RequestMethod.GET)
+    public String deleteBook(@PathVariable Long id){
+        bookRepository.deleteById(id);
+        return "redirect:/all";
     }
 }
