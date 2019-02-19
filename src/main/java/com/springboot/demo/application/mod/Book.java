@@ -1,20 +1,29 @@
 package com.springboot.demo.application.mod;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
+import org.springframework.data.annotation.CreatedDate;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
 @Entity(name = "book")
+@DynamicUpdate
+@DynamicInsert
 public class Book implements Serializable {
 
     private static final long serialVersionUID = 3537921742065870581L;
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column
     private String name;
-    @Column
+    @Column(nullable = true)
+    @CreatedDate
+    @JsonFormat(pattern="yyyy-MM-dd hh:mm:ss")
     private Date release;
     @Column
     private String des;
