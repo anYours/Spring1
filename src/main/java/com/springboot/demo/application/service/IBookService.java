@@ -9,4 +9,7 @@ import java.util.List;
 public interface IBookService {
 
     List<Book> findAll();
+    List<Book> quereyBookByName(String name);
+
+    List<Book> queryUserByPage(Integer page, Integer rows);
 }

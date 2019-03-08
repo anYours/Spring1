@@ -24,17 +24,13 @@ public class Book implements Serializable {
     @Column(nullable = true)
     @CreatedDate
     @JsonFormat(pattern="yyyy-MM-dd hh:mm:ss")
-    private Date release;
+    private Date released;
     @Column
     private String des;
     @Column
     private String author;
     @Column
     private Double sal;
-
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
-    }
 
     public Long getId() {
         return id;
@@ -53,11 +49,11 @@ public class Book implements Serializable {
     }
 
     public Date getRelease() {
-        return release;
+        return released;
     }
 
     public void setRelease(Date release) {
-        this.release = release;
+        this.released = release;
     }
 
     public String getDes() {
@@ -89,7 +85,7 @@ public class Book implements Serializable {
         return "Book{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", release=" + release +
+                ", release=" + released +
                 ", des='" + des + '\'' +
                 ", author='" + author + '\'' +
                 ", sal=" + sal +
