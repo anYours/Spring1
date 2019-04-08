@@ -91,6 +91,7 @@ public class BookController {
         List<Book> books = bookService.queryUserByPage(pageNum, 5);
         PageInfo<Book> pageInfo = new PageInfo<Book>(books);
         model.addAttribute("pageInfo",pageInfo);
+        model.addAttribute("apiName","getAllBook");
         return "bookList";
     }
 }

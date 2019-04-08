@@ -14,6 +14,9 @@ spring:
     mode: HTML5
   resources:
     static-locations: classpath:/templates/
+  devtools:
+    restart:
+      enabled: true
 jpa:
   hibernate:
   ddl-auto: update
